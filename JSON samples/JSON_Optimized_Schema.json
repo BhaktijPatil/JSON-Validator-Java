@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "question": {
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/option"
+          },
+          "maxItems": 4
+        },
+        "answer": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "question",
+        "options",
+        "answer"
+      ]
+    },
+    "option": {
+      "type": "string",
+      "maxLength": 20
+    }
+  },
+  "type": "object",
+  "properties": {
+    "quiz": {
+      "type": "object",
+      "properties": {
+        "sport": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/question"
+          }
+        },
+        "math": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/question"
+          }
+        }
+      }
+    }
+  }
+}
+

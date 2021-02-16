@@ -14,12 +14,13 @@ public class JSONValidationApplication {
         File jsonObjectFile = new File("JSON samples/JSON_Sample.json");
         InputStream jsonObjectInputStream = new FileInputStream(jsonObjectFile);
 
-        File jsonSchemaFile = new File("JSON samples/JSON_Sample_Schema.json");
+//        File jsonSchemaFile = new File("JSON samples/JSON_Sample_Schema.json");
+        File jsonSchemaFile = new File("JSON samples/JSON_Optimized_Schema.json");
         InputStream jsonSchemaInputStream = new FileInputStream(jsonSchemaFile);
 
         JSONValidator jsonValidator = new JSONValidator(jsonSchemaInputStream, jsonObjectInputStream);
         jsonValidator.printValidationResults();
 
-        System.out.println("Validation Success");
+        System.out.println("Validation Done");
     }
 }

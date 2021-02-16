@@ -1,24 +1,135 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Product",
-  "description": "A product from the catalog",
   "type": "object",
   "properties": {
-    "id": {
-      "description": "The unique identifier for a product",
-      "type": "integer",
-      "maximum": 10
-    },
-    "name": {
-      "description": "Name of the product",
-      "type": "string",
-      "maxLength": 5
-    },
-    "price": {
-      "type": "number",
-      "minimum": 0,
-      "exclusiveMinimum": true
+    "quiz": {
+      "type": "object",
+      "properties": {
+        "sport": {
+          "type": "object",
+          "properties": {
+            "q1": {
+              "type": "object",
+              "properties": {
+                "question": {
+                  "type": "string",
+                  "maxLength": 30
+                },
+                "options": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "answer": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "question",
+                "options",
+                "answer"
+              ]
+            }
+          },
+          "required": [
+            "q1"
+          ]
+        },
+        "maths": {
+          "type": "object",
+          "properties": {
+            "q1": {
+              "type": "object",
+              "properties": {
+                "question": {
+                  "type": "string"
+                },
+                "options": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "answer": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "question",
+                "options",
+                "answer"
+              ]
+            },
+            "q2": {
+              "type": "object",
+              "properties": {
+                "question": {
+                  "type": "string"
+                },
+                "options": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "answer": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "question",
+                "options",
+                "answer"
+              ]
+            }
+          },
+          "required": [
+            "q1",
+            "q2"
+          ]
+        }
+      },
+      "required": [
+        "sport",
+        "maths"
+      ]
     }
   },
-  "required": ["id", "name", "price"]
+  "required": [
+    "quiz"
+  ]
 }

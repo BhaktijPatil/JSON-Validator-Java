@@ -22,11 +22,20 @@ public class JSONValidator {
             Schema schema = SchemaLoader.load(jsonSchema);
             schema.validate(jsonObject);
         } catch (ValidationException validationException) {
-            System.out.println("ERROR : " + validationException.getMessage());
-            validationException.getCausingExceptions().stream()
-                    .map(ValidationException::getMessage)
-                    .forEach(System.out::println);
+            printCausingExceptions(validationException);
         }
+    }
 
+    private void printCausingExceptions(ValidationException validationException)
+    {
+        if(validationException.getCausingExceptions().size() != 0)
+            for (ValidationException exception : validationException.getCausingExceptions())
+            {
+                printCausingExceptions(exception);
+            }
+        else
+        {
+            System.out.println(validationException.getMessage());
+        }
     }
 }
